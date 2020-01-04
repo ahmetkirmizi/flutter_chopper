@@ -20,6 +20,9 @@ class SinglePostPage extends StatelessWidget {
         future: Provider.of<PostApiService>(context).getPost(postId),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
+            if(snapshot.hasError){
+              return Center(child: Text(snapshot.error.toString()),);
+            }
             final Map post = json.decode(snapshot.data.bodyString);
             return _buildPost(post);
           } else {
