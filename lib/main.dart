@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return Provider(
       builder: (_) => PostApiService.create(),
       dispose: (_, PostApiService service) => service.client.dispose(),
-      child: MaterialApp(title: 'Material App', home: HomePage()),
+      child: MaterialApp(title: 'Material App', home: HomePage())
     );
   }
 }
